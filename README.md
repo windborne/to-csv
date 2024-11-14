@@ -1,4 +1,4 @@
-# to_little_r
+# WindBorne to CSV
 
 This utility queries the [WindBorne API](https://windbornesystems.com/docs/api) and converts the files to CSV
 While it works out of the box, we encourage you to adapt it to your needs.
