@@ -101,7 +101,7 @@ def output_data(accumulated_observations, mission_name, starttime, bucket_hours)
         if accumulated_observations[i]['timestamp'] - curtime > bucket_hours * 60 * 60:
             segment = accumulated_observations[start_index:i]
             mt = datetime.datetime.fromtimestamp(curtime, tz=datetime.timezone.utc)+datetime.timedelta(hours=bucket_hours/2)
-            output_file = (f"WindBorne_%s_%04d-%02d-%02d_%02d:00_%dh.csv" %
+            output_file = (f"WindBorne_%s_%04d-%02d-%02d_%02d_%dh.csv" %
                            (mission_name, mt.year, mt.month, mt.day, mt.hour, bucket_hours))
 
             convert_to_csv(segment, output_file)
@@ -112,7 +112,7 @@ def output_data(accumulated_observations, mission_name, starttime, bucket_hours)
     # Cover any extra data within the latest partial bucket
     segment = accumulated_observations[start_index:]
     mt = datetime.datetime.fromtimestamp(curtime, tz=datetime.timezone.utc) + datetime.timedelta(hours=bucket_hours / 2)
-    output_file = (f"WindBorne_%s_%04d-%02d-%02d_%02d:00_%dh.csv" %
+    output_file = (f"WindBorne_%s_%04d-%02d-%02d_%02d_%dh.csv" %
                    (mission_name, mt.year, mt.month, mt.day, mt.hour, bucket_hours))
     convert_to_csv(segment, output_file)
 
